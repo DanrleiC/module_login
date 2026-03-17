@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 class CustomInput extends StatelessWidget {
@@ -6,7 +5,7 @@ class CustomInput extends StatelessWidget {
   final String hint;
   final bool isPassword;
   final TextEditingController controller;
-  
+
   const CustomInput({
     super.key,
     required this.label,
@@ -17,18 +16,38 @@ class CustomInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const Color brandGreen = Color.fromRGBO(38, 201, 81, 1);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14)),
+        Text(
+          label,
+          style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
+        ),
         const SizedBox(height: 8),
         TextField(
           controller: controller,
           obscureText: isPassword,
           decoration: InputDecoration(
             hintText: hint,
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide(color: Colors.grey.shade300)),
-            enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide(color: Colors.grey.shade300)),
+            hintStyle: TextStyle(color: Colors.grey.shade400),
+            filled: true,
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: BorderSide(color: const Color.fromARGB(255, 63, 63, 63).withValues(alpha: 0.2)),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: const BorderSide(
+                color: brandGreen, 
+                width: 2.0,
+              ),
+            ),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           ),
         ),
       ],

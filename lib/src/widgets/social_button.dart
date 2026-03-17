@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 class SocialButton extends StatelessWidget {
-  final String icon;
+  final IconData icon;
   final String label;
   final VoidCallback onTap;
   
@@ -20,7 +20,7 @@ class SocialButton extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(border: Border.all(color: Colors.grey.shade300), borderRadius: BorderRadius.circular(12)),
-        child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [const Icon(Icons.g_mobiledata), const SizedBox(width: 8), Text(label)]),
+        child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [Icon(icon), const SizedBox(width: 8), Text(label)]),
       ),
     );
   }
