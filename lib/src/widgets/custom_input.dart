@@ -27,6 +27,9 @@ class CustomInput extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         TextField(
+					autocorrect: false, 
+				  smartDashesType: SmartDashesType.disabled,
+				  smartQuotesType: SmartQuotesType.disabled,
           controller: controller,
           obscureText: isPassword,
           decoration: InputDecoration(
